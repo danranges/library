@@ -1,4 +1,56 @@
+html,
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  background-color: rgb(255, 208, 0);
+}
+
+h1 {
+  color: #2d2d30;
+}
+
+#add-book-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  width: 350px;
+  height: 150px;
+  background-color: #2d2d30f6;
+  border-radius: 5px;
+  padding: 20px;
+  -webkit-box-shadow: 19px 5px 32px -7px rgba(0, 0, 0, 0.69);
+  box-shadow: 19px 5px 32px -7px rgba(0, 0, 0, 0.69);
+}
+
 .new-book-label {
+  color: rgb(235, 235, 235);
   display: inline-block;
   width: 48px;
+  padding: 7px;
+  font-size: 14px;
+}
+
+input[type="text"] {
+  border: 0px;
+  border-bottom: 1px solid rgb(155, 155, 155);
+  width: 230px;
+  height: 20px;
+  background-color: #2d2d3000;
+  color: rgb(203, 247, 162);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+}
+
+#nPages {
+  color: rgb(243, 144, 108);
+}
+
+#nRead {
+  margin-left: 0px;
+}
+
+#btn-add-book {
+  margin-top: 10px;
 }
