@@ -18,6 +18,19 @@ function addBookToLibrary() {
                           form.elements[1].value,               //author
                           parseInt(form.elements[2].value),     //pages
                           form.elements[3].checked))            //read 
+}
+
+function sortLibrary() {
+    library.sort((a, b) => {
+        if (a.title > b.title) return 1;
+        if (a.title < b.title) return -1;
+        return 0;
+      })
+      library.sort((a, b) => {
+        if (a.author > b.author) return 1;
+        if (a.author < b.author) return -1;
+        return 0;
+      })
     console.table(library)
 }
 
@@ -31,6 +44,7 @@ function clearForm() {
 function showForm() {
     form.style.display = 'block'
     formOverlay.style.display = 'block'
+    form.elements[0].focus()
 }
 
 function hideForm() {
@@ -38,13 +52,14 @@ function hideForm() {
     formOverlay.style.display = 'none'
 }
 
-library.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false))
 library.push(new Book('The DaVinci Code', 'Dan Brown', 384, true))
+library.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false))
 library.push(new Book('Mitt Liv', 'Lars Monsen', 246, false))
 
 btnAddBook.addEventListener('click', () => {
-    if (form.elements[0].value && form.elements[0].value && form.elements[0].value) {
+    if (form.elements[0].value && form.elements[1].value && (parseInt(form.elements[2].value) > 0)) {
         addBookToLibrary()
+        sortLibrary()
         clearForm()
         hideForm()
         }
