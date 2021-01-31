@@ -1,6 +1,7 @@
 const library = []
 const btnAddBook = document.getElementById('btn-add-book')
 const form = document.getElementById('add-book-form')
+const formOverlay = document.getElementById('add-book-overlay')
 const btnBookForm = document.getElementById('btn-open-add-new')
 
 
@@ -29,10 +30,12 @@ function clearForm() {
 
 function showForm() {
     form.style.display = 'block'
+    formOverlay.style.display = 'block'
 }
 
 function hideForm() {
     form.style.display = 'none'
+    formOverlay.style.display = 'none'
 }
 
 library.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false))
@@ -49,3 +52,4 @@ btnAddBook.addEventListener('click', () => {
 )
 
 btnBookForm.addEventListener('click', showForm)
+formOverlay.addEventListener('click', hideForm)

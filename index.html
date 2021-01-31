@@ -8,9 +8,8 @@
   </head>
   <body>
     <h1>libraryCard</h1>
-    <button class="btn-open-add-new" id="btn-open-add-new">
-      append(new Book)
-    </button>
+    <button class="btn-open-add-new" id="btn-open-add-new">add new book</button>
+    <div class="add-book-overlay" id="add-book-overlay"></div>
     <form id="add-book-form">
       <label for="nTitle" class="new-book-label">title </label>
       <input type="text" id="nTitle" name="nTitle" value="" /><br />
@@ -20,7 +19,7 @@
       <input type="text" id="nPages" name="nPages" value="" /><br />
       <label for="nRead" class="new-book-label">read </label>
       <input type="checkbox" id="nRead" name="nRead" value="" /><br />
-      <input type="button" id="btn-add-book" value="Add Book" />
+      <input type="button" id="btn-add-book" value="add to library" />
     </form>
 
     <script src="library.js"></script>
