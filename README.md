@@ -14,6 +14,8 @@ The repo is hosted [here](https://github.com/danranges/library)
 
 The live demo can be found [here](https://danranges.github.io/library/)
 
+Double-clicking a card will mark as read
+
 ## Technologies
 
 - HTML
