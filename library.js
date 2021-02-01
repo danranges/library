@@ -1,4 +1,4 @@
-const library = []
+let library = []
 const btnAddBook = document.getElementById('btn-add-book')
 const form = document.getElementById('add-book-form')
 const formOverlay = document.getElementById('add-book-overlay')
@@ -13,9 +13,9 @@ function Book(title, author, pages, read) {
 }
 
 // test books
-library.push(new Book('The DaVinci Code', 'Dan Brown', 384, true))
-library.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false))
-library.push(new Book('Mitt Liv', 'Lars Monsen', 246, false))
+// library.push(new Book('The DaVinci Code', 'Dan Brown', 384, true))
+// library.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false))
+// library.push(new Book('Mitt Liv', 'Lars Monsen', 246, false))
 
 function addBookToLibrary() {
     library.push(new Book(form.elements[0].value,               //title
@@ -25,6 +25,7 @@ function addBookToLibrary() {
     clearLibrary()
     sortLibrary()
     createStoredCards()
+    saveLocal()
 }
 
 function sortLibrary() {
@@ -91,14 +92,25 @@ function markAsRead (bookIndex) {
     library[bookIndex].read = !library[bookIndex].read
     clearLibrary()
     createStoredCards()
+    saveLocal()
 }
 
 function deleteBook (bookIndex, card) {
     library.splice(bookIndex, 1)
     card.remove()
+    saveLocal()
 }
 
-createStoredCards()
+function saveLocal() {
+    localStorage.setItem('library', JSON.stringify(library))
+}
+
+function restoreLocal() {
+    if (localStorage.getItem('library')) {
+        library = JSON.parse(localStorage.getItem('library'))
+    }
+    createStoredCards()
+}
 
 btnAddBook.addEventListener('click', () => {
     if (form.elements[0].value && form.elements[1].value && (parseInt(form.elements[2].value) > 0)) {
@@ -112,3 +124,5 @@ btnAddBook.addEventListener('click', () => {
 
 btnBookForm.addEventListener('click', showForm)
 formOverlay.addEventListener('click', hideForm)
+
+restoreLocal()
