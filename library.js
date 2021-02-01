@@ -75,16 +75,28 @@ function createCard (book) {
                           ${book.pages} pg<br><br>
                           ${book.read ? 'read': 'not read'}<br><br>`
     cardCatalog.appendChild(newCard)
-
+    newCard.firstChild.addEventListener('click', () => {
+        deleteBook(library.indexOf(book), newCard)
+    })
+    newCard.addEventListener('dblclick', () => {
+        markAsRead(library.indexOf(book))
+    })
 }
 
 function clearLibrary () {
     cardCatalog.innerHTML = ''
 }
 
-// TODO: mark as read
+function markAsRead (bookIndex) {
+    library[bookIndex].read = !library[bookIndex].read
+    clearLibrary()
+    createStoredCards()
+}
 
-// TODO: delete book
+function deleteBook (bookIndex, card) {
+    library.splice(bookIndex, 1)
+    card.remove()
+}
 
 createStoredCards()
 
