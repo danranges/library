@@ -44,6 +44,7 @@ h1 {
 
 .add-book-overlay {
   position: fixed;
+  z-index: 1000;
   top: 0%;
   left: 0%;
   width: 100%;
@@ -75,14 +76,15 @@ h1 {
 }
 
 #add-book-form {
-  position: absolute;
+  position: fixed;
+  z-index: 1001;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
   width: 350px;
   height: 150px;
-  background-color: #2d2d30f6;
+  background-color: #2d2d30;
   border-radius: 5px;
   padding: 20px;
   -webkit-box-shadow: 19px 5px 32px -7px rgba(0, 0, 0, 0.69);
@@ -132,13 +134,12 @@ input[type="text"] {
 
 .card-catalog {
   display: flex;
-  flex-shrink: auto;
-  max-height: 480px;
-  top: 160px;
+  padding-bottom: 10px;
+  transform: translate(0px, 160px);
   overflow-y: scroll;
   flex-wrap: wrap;
   width: 95%;
-  height: 600px;
+  max-height: 480px;
   min-width: 600px;
   max-width: 900px;
 }
@@ -156,7 +157,7 @@ input[type="text"] {
   background-color: #2d2d30f6;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 19px 10px 25px -7px rgba(0, 0, 0, 0.69);
+  box-shadow: 19px 5px 15px -7px rgba(0, 0, 0, 0.69);
   transition: 0.07s;
 }
 
