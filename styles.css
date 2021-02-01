@@ -21,8 +21,6 @@ h1 {
 }
 
 #btn-open-add-new {
-  background-color: #2d2d30;
-  color: #2d2d30;
   border: none;
   color: rgb(235, 235, 235);
   background-color: #2d2d30f6;
@@ -42,6 +40,18 @@ h1 {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.452);
   display: none;
+}
+
+.remove-book {
+  width: 20px;
+  padding: 0px 0px;
+  margin: -10px -7px 7.5px;
+  border: none;
+  outline: none;
+  color: rgb(235, 235, 235);
+  background-color: #2d2d3000;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: normal;
 }
 
 #add-book-form {
@@ -102,10 +112,17 @@ input[type="text"] {
 
 .card-catalog {
   display: flex;
+  flex-wrap: wrap;
   width: 95%;
+  min-width: 600px;
+  max-width: 900px;
 }
 
 .library-card {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  min-width: 220px;
   margin: 10px;
   width: 200px;
   height: 150px;

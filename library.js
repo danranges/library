@@ -22,17 +22,20 @@ function addBookToLibrary() {
                           form.elements[1].value,               //author
                           parseInt(form.elements[2].value),     //pages
                           form.elements[3].checked))            //read 
+    clearLibrary()
+    sortLibrary()
+    createStoredCards()
 }
 
 function sortLibrary() {
     library.sort((a, b) => {
-        if (a.title > b.title) return 1;
-        if (a.title < b.title) return -1;
+        if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
+        if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
         return 0;
       })
       library.sort((a, b) => {
-        if (a.author > b.author) return 1;
-        if (a.author < b.author) return -1;
+        if (a.author.toLowerCase() > b.author.toLowerCase()) return 1;
+        if (a.author.toLowerCase() < b.author.toLowerCase()) return -1;
         return 0;
       })
     console.table(library)
@@ -52,6 +55,7 @@ function showForm() {
 }
 
 function hideForm() {
+    clearForm()
     form.style.display = 'none'
     formOverlay.style.display = 'none'
 }
@@ -64,19 +68,25 @@ function createStoredCards() {
 
 function createCard (book) {
     let newCard = document.createElement('div')
-    newCard.innerHTML = `<b>${book.title}</b><br>
-                          by ${book.author}<br>
-                          ${book.pages} pg<br>
-                          ${book.read ? 'read': 'not read'}`
     newCard.classList.add('library-card')
+    newCard.innerHTML = `<button class='remove-book'>x</button>`
+    newCard.innerHTML += `<b>${book.title}</b>
+                          by ${book.author}<br><br>
+                          ${book.pages} pg<br><br>
+                          ${book.read ? 'read': 'not read'}<br><br>`
     cardCatalog.appendChild(newCard)
 
 }
 
-createStoredCards()
+function clearLibrary () {
+    cardCatalog.innerHTML = ''
+}
+
 // TODO: mark as read
 
 // TODO: delete book
+
+createStoredCards()
 
 btnAddBook.addEventListener('click', () => {
     if (form.elements[0].value && form.elements[1].value && (parseInt(form.elements[2].value) > 0)) {
