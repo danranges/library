@@ -7,6 +7,14 @@ body {
   font-weight: bolder;
   background-color: rgb(255, 208, 0);
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  background-color: #ffffff00;
 }
 
 h1 {
@@ -17,7 +25,7 @@ h1 {
   background-color: #2d2d30f6;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 19px 5px 32px -7px rgba(0, 0, 0, 0.69);
+  box-shadow: 19px 5px 35px -7px rgba(0, 0, 0, 0.69);
 }
 
 #btn-open-add-new {
@@ -30,6 +38,7 @@ h1 {
   font-weight: bolder;
   margin-left: 10px;
   box-shadow: 19px 5px 32px -7px rgba(0, 0, 0, 0.69);
+  transform: translate(0px, -10px);
 }
 
 .add-book-overlay {
@@ -122,8 +131,14 @@ input[type="text"] {
 
 .card-catalog {
   display: flex;
+  flex-shrink: auto;
+  position: absolute;
+  max-height: 480px;
+  top: 160px;
+  overflow-y: scroll;
   flex-wrap: wrap;
   width: 95%;
+  height: 600px;
   min-width: 600px;
   max-width: 900px;
 }
@@ -141,18 +156,25 @@ input[type="text"] {
   background-color: #2d2d30f6;
   border-radius: 5px;
   padding: 20px;
-  -webkit-box-shadow: 19px 5px 32px -7px rgba(0, 0, 0, 0.69);
-  box-shadow: 19px 5px 32px -7px rgba(0, 0, 0, 0.69);
+  box-shadow: 19px 10px 25px -7px rgba(0, 0, 0, 0.69);
+  transition: 0.07s;
+}
+
+.library-card:hover {
+  transform: scale(1.05);
 }
 
 footer {
   display: flex;
   align-content: center;
+  width: 100%;
+  height: 50px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   position: absolute;
   top: 100%;
   margin: -50px 0px 0px 10px;
+  background-color: rgb(255, 208, 0);
 }
 
 a.footer {
