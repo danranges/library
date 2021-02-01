@@ -10,7 +10,7 @@
 
 The "Library" project brief can be found on [The Odin Project's website](https://www.theodinproject.com/courses/javascript/lessons/library)
 The repo is hosted [here](https://github.com/danranges/library)
-The live demo can be found [here](#)
+The live demo can be found [here](https://danranges.github.io/library/)
 
 ## Technologies
 
