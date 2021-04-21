@@ -5,13 +5,14 @@ const formOverlay = document.getElementById('add-book-overlay')
 const btnBookForm = document.getElementById('btn-open-add-new')
 const cardCatalog = document.getElementById('card-catalog')
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+class Book{
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
 }
-
 // test books
 // library.push(new Book('The DaVinci Code', 'Dan Brown', 384, true))
 // library.push(new Book('The Hobbit', 'J.R.R. Tolkien', 295, false))

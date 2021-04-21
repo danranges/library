@@ -139,6 +139,7 @@ input[type="text"] {
   overflow-y: scroll;
   flex-wrap: wrap;
   width: 95%;
+  height: auto;
   max-height: 480px;
   min-width: 600px;
   max-width: 900px;
